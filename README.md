@@ -1,66 +1,87 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+How to install the news project on your machine?
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Requirements
+------------------
+1. Composer: Ensure Composer is installed on the machine. Composer is a dependency manager for PHP.
+2. PHP: Make sure PHP is installed (version 7.3 or higher is recommended).
+    I have used PHP 8.2.12
+3. Database: Ensure a database system (like MySQL, PostgreSQL, SQLite, etc.) is installed and configured.
+4. Web Server: Install a web server like Apache or Nginx, or use PHP's built-in server for development purposes.
 
-## About Laravel
+I have used XAMPP 3.3.0
+XAMPP is a software package that includes several components, including a web server. XAMPP stands for Cross-Platform (X), Apache (A), MySQL (M), PHP (P), and Perl (P). It is a popular solution stack package that provides a complete development environment for PHP-based applications. Here's a breakdown of its components:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Apache: The web server component of XAMPP. Apache is one of the most widely used web servers and is responsible for serving web pages to users.
+MySQL/MariaDB: The database component. MySQL is a relational database management system, while MariaDB is an open source and forever-free MySQL alternative that offers greater efficiency, enhanced database performance and is often included in newer versions of XAMPP.
+PHP: The server-side scripting language.
+Perl: Another scripting language included in XAMPP.
+phpMyAdmin: A web-based tool for managing MySQL/MariaDB databases.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Laravel Project Installation using XAMPP
+-------------------------------------------------
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+If you want to install a Laravel project using XAMPP, follow these steps:
 
-## Learning Laravel
+Step 1: Install XAMPP
+Download XAMPP from the official website: XAMPP Download.
+Install XAMPP by running the installer and following the instructions.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Step 2: Set Up the Laravel Project
+Clone the Laravel Project: Place your Laravel project in the htdocs directory of your XAMPP installation (usually C:\xampp\htdocs on Windows).
+cd C:\xampp\htdocs
+git clone https://github.com/username/repository.git
+cd repository
+OR
+Place Your Laravel Project
+Copy Laravel Project: Paste your Laravel project into the xampp/htdocs directory. For example, if your project is named news, it should be located at C:\xampp\htdocs\news.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Step 3: Start XAMPP
+Open the XAMPP Control Panel.
+Start the Apache and MySQL services.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Step 4: Install Composer
+Download and Install Composer: You can download Composer from here(https://getcomposer.org/).
+Verify Installation: Open a command prompt and type composer to verify that Composer is installed correctly.
 
-## Laravel Sponsors
+Step 5: Install Laravel Dependencies
+a) Open Command Prompt: Navigate to your project directory in htdocs. For example:
+    cd C:\xampp\htdocs\news
+b) Install Dependencies: Run Composer to install all dependencies.
+    composer install
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Step 6: Set Up Environment Configuration
+ a) Copy .env.example to .env:
+      cp .env.example .env
 
-### Premium Partners
+ b) Edit .env File: Open the .env file in a text editor and set up your environment variables, especially the database settings. For example:
+     DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+   DB_PORT=3306
+  DB_DATABASE=your_database_name
+ DB_USERNAME=root
+ DB_PASSWORD=
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Step 7: Generate Application Key
+Generate Key: Run the following Artisan command to generate the application key.
+php artisan key:generate
 
-## Contributing
+Step 8: Set Up the Database
+Create a Database: Use phpMyAdmin (accessible from the XAMPP Control Panel) to create a new database for your Laravel project.
+Run Migrations: Apply the database migrations.
+php artisan migrate
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Step 9: Set Directory Permissions
+Set Permissions: Ensure that the storage and bootstrap/cache directories are writable by the web server.
+chmod -R 775 storage
+chmod -R 775 bootstrap/cache
 
-## Code of Conduct
+Step 10: Access the Laravel Project
+Start Laravel Development Server: 
+C:\xampp\htdocs\news>php artisan serve
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
